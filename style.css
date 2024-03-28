@@ -1,0 +1,164 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    margin:0
+}
+
+.headline {
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+#gallery { /* # zugriff auf die ID Gallery */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.imgcontainer {
+    height: 150px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.imgcontainer:hover {
+    margin: 10px;
+    object-fit: cover;
+    cursor: pointer;
+    filter: brightness(50%);
+    transition: all 1s ease-in-out;
+}
+
+.dialog-bg {
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999; /* Dieser Div liegt über allen anderen */
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.imgcontainerDialog {
+    height: 400px;
+    margin: 20px;
+    object-fit: cover;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+}
+
+.close {
+    margin: 20px;
+}
+
+.next {
+    margin-top: 440px;
+    margin-left: 20px;
+}
+
+.previous {
+    display: flex;
+    margin-left: 20px;
+}
+
+/* Responsiv 820 */
+
+@media (max-width: 820px) {
+    .imgcontainer {
+        width: 620px;
+        height: 300px;
+        margin: 20px;
+        object-fit: cover;
+    }
+    
+    .imgcontainer:hover {
+        object-fit: cover;
+        cursor: pointer;
+        filter: brightness(50%);
+        transition: all 1s ease-in-out;
+    }
+    
+    .dialog-bg {
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 999;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+    
+    .imgcontainerDialog {
+        height: 400px;
+        object-fit: cover;
+    }
+}
+
+/* Responsiv 680 */ 
+
+@media (max-width: 680px) {
+    .imgcontainer {
+        width: 480px;
+        height: 300px;
+        margin: 20px;
+        object-fit: cover;
+    }
+    
+    .imgcontainer:hover {
+        object-fit: cover;
+        cursor: pointer;
+        filter: brightness(50%);
+        transition: all 1s ease-in-out;
+    }
+    
+    .dialog-bg {
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 999;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+    
+    .imgcontainerDialog {
+        height: 400px;
+        width: 450px;
+        object-fit: cover;
+    }
+}
+/* Responsiv 540 */ 
+
+@media (max-width: 540px) {
+    .imgcontainer {
+        width: 340px;
+        height: 300px;
+        margin: 20px;
+        object-fit: cover;
+    }
+    
+    .imgcontainer:hover {
+        object-fit: cover;
+        cursor: pointer;
+        filter: brightness(50%);
+        transition: all 1s ease-in-out;
+    }
+    
+    .dialog-bg {
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 999;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+    
+    .imgcontainerDialog {
+        width: 400px;
+        height: 400px;
+        object-fit: cover;
+    }
+}
