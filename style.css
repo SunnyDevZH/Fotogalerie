@@ -8,7 +8,7 @@ body {
     color: rgb(0, 0, 0);
 }
 
-#gallery { /* # zugriff auf die ID Gallery */
+#gallery { 
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -31,7 +31,7 @@ body {
 
 .dialog-bg {
     background-color: rgba(0, 0, 0, 0.8);
-    z-index: 999; /* Dieser Div liegt über allen anderen */
+    z-index: 999; 
     position: fixed;
     left: 0;
     right: 0;

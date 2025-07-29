@@ -1,23 +1,38 @@
-let images = [`img1.jpeg`, `img2.jpeg`, `img3.jpeg`, `img4.jpeg`, `img5.jpeg`, `img6.jpeg`, `img7.jpeg`, `img8.jpeg`, `img9.jpeg`, `img10.jpeg`, `img11.jpeg`, `img12.jpeg`, `img13.jpeg`, `img14.jpeg`, `img15.jpeg`, `img16.jpeg`, `img17.jpeg`, `img18.jpeg`, `img19.jpeg`, `img20.jpeg`,];
+let images = [
+    `img1.jpeg`, `img2.jpeg`, `img3.jpeg`, `img4.jpeg`, `img5.jpeg`, `img6.jpeg`, `img7.jpeg`, `img8.jpeg`, `img9.jpeg`, `img10.jpeg`,
+    `img11.jpeg`, `img12.jpeg`, `img13.jpeg`, `img14.jpeg`, `img15.jpeg`, `img16.jpeg`, `img17.jpeg`, `img18.jpeg`, `img19.jpeg`, `img20.jpeg`,
+];
 
+/**
+ * Rendert die Galerie, indem alle Bilder aus dem Array `images` als Thumbnails im Element mit der ID 'gallery' angezeigt werden.
+ * Jedes Bild ist klickbar und öffnet das Bild im Dialog.
+ */
 function render() {
-    let gallery =  document.getElementById('gallery'); // Zugriff auf Div Gallerie
-
-    gallery.innerHTML = ' '; // Div leeren
-    for(let i = 0; i < 20; i++) { // rendern von Gallerie
-    gallery.innerHTML += `
-        <div class="imgcontainer">
-            <img class="imgcontainer" onclick="openImage(${i})"src="./img/${images[i]}"> 
-        </div>
+    let gallery = document.getElementById('gallery');
+    gallery.innerHTML = '';
+    for (let i = 0; i < 20; i++) {
+        gallery.innerHTML += `
+            <div class="imgcontainer">
+                <img class="imgcontainer" onclick="openImage(${i})" src="./img/${images[i]}"> 
+            </div>
         `;
     }
 }
 
-function openImage(i) { // Funktion 1 aufgerufen durch onclick
-    document.getElementById('dialog').innerHTML = imageTemplate(i); // Zugriff auf Div Dialog
+/**
+ * Öffnet das Bild im Dialog, indem das entsprechende HTML-Template in das Element mit der ID 'dialog' eingefügt wird.
+ * @param {number} i - Index des angeklickten Bildes im Array `images`.
+ */
+function openImage(i) {
+    document.getElementById('dialog').innerHTML = imageTemplate(i);
 }
 
-function imageTemplate(i) { // Funktion 2 aufgerufen durch Funktion 1
+/**
+ * Gibt das HTML-Template für den Bild-Dialog zurück, inklusive Navigation (vorheriges/nächstes Bild) und Schließen-Button.
+ * @param {number} i - Index des aktuell angezeigten Bildes.
+ * @returns {string} HTML-String für den Dialog.
+ */
+function imageTemplate(i) {
     return `
     <div class="dialog-bg">
         <div>
@@ -29,22 +44,33 @@ function imageTemplate(i) { // Funktion 2 aufgerufen durch Funktion 1
     </div>`;
 }
 
-function closeImage() { // Schliesen Funktion durch onclick 
-    document.getElementById('dialog').innerHTML = ''; // Div leer
+/**
+ * Schließt den Bild-Dialog, indem der Inhalt des Elements mit der ID 'dialog' geleert wird.
+ */
+function closeImage() {
+    document.getElementById('dialog').innerHTML = '';
 }
 
-function previousImage(i) { // vorheriges bild anzegen durch 
+/**
+ * Zeigt das vorherige Bild im Dialog an. Bei Erreichen des ersten Bildes wird zum letzten Bild gesprungen.
+ * @param {number} i - Index des aktuell angezeigten Bildes.
+ */
+function previousImage(i) {
     if (i == 0) {
-            openImage(i+19); // beim letzten bild starten
-    }   else {
-            openImage(i-1); // ein bild zurück springen
+        openImage(i + 19);
+    } else {
+        openImage(i - 1);
     }
 }
 
-function nextImage(i) { // nächstes bild
+/**
+ * Zeigt das nächste Bild im Dialog an. Bei Erreichen des letzten Bildes wird zum ersten Bild gesprungen.
+ * @param {number} i - Index des aktuell angezeigten Bildes.
+ */
+function nextImage(i) {
     if (i == 19) {
-            openImage(i-19); // beim ersten bild starten
-    }   else {
-            openImage(i+1); // ein bild weiter
+        openImage(i - 19);
+    } else {
+        openImage(i + 1);
     }
 }
